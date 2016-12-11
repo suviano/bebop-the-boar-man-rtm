@@ -1,7 +1,7 @@
 {
-  "name": "node-slack-bot",
+  "name": "bebop",
   "version": "1.0.0",
-  "description": "A sample Beep Boop Node.js Slackbot",
+  "description": "Boar man",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
