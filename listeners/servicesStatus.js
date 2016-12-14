@@ -1,5 +1,4 @@
 const requestPromise = require('request-promise-native')
-const restApisConfig = require('../servicesConf/restApiConfig')
 
 var options = (host, type) => {
   return {
@@ -11,6 +10,7 @@ var options = (host, type) => {
 }
 
 module.exports = (controller) => {
+  let restApisConfig = require('../servicesConf/restApiConfig')
   controller.hears('service(s)? up', [
     'direct_mention', 'direct_message'
   ], (bot, message) => {

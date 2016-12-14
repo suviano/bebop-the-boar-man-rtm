@@ -33,8 +33,6 @@ controller.on('file_created', (bot, message) => {
   console.log('teste')
 })
 
-require('./utils/schedule')(controller)
-
 require('./listeners/greet')(controller)
 require('./listeners/mention')(controller)
 require('./listeners/help')(controller)

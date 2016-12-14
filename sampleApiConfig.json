@@ -1,0 +1,18 @@
+{
+    "hosts": {
+        "https://lala.com": {
+            "image": "https://lala.com/img/logo.png",
+            "routes": [{
+                "name": "Sing",
+                "type": "get"
+            }]
+        },
+        "https://huehue.com": {
+            "image": "https://huehue.com/app/imgs/logo.png",
+            "routes": [{
+                "name": "HueHue",
+                "type": "get"
+            }]
+        }
+    }
+}

@@ -5,7 +5,8 @@ module.exports = (controller) => {
       '`bot attachment` to see a Slack attachment message.\n' +
       '`@<your bot\'s name>` to demonstrate detecting a mention.\n' +
       '`bot help` to see this again.' +
-      ' `bot setup services{...}` to save a service'
+      '`bot services up` will check services' +
+      '`bot setup services{...}` to save a service'
     bot.reply(message, help)
   })
 }
