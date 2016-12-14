@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beepboophq/node-slack-bot.git"
+    "url": "git+https://github.com/trocase/bebop-the-boar-man-rtm"
   },
   "keywords": [
     "slackbot",
@@ -17,12 +17,12 @@
   ],
   "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/beepboophq/node-slack-bot/issues"
-  },
-  "homepage": "https://github.com/beepboophq/node-slack-bot#readme",
+  "homepage": "https://github.com/trocase/bebop-the-boar-man-rtm#readme",
   "dependencies": {
     "beepboop-botkit": "^1.4.1",
-    "botkit": "~0.2.2"
+    "botkit": "~0.2.2",
+    "node-schedule": "^1.2.0",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
   }
 }
