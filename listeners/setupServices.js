@@ -1,9 +1,8 @@
 const filesSync = require('../utils/filesSync')
 const joinErrors = require("../utils/joinSet").joinErrors
 
-var validService = servicesJSON => {
-  let errorsToFix = new Set()
-  if (servicesJSON['hosts']) {
+var validService = (servicesJSON, errorsToFix) => {
+  if (servicesJSON.hasOwnProperty('hosts')) {
     for (let serviceJSON in servicesJSON['hosts']) {
       serviceJSON = serviceJSON.replace(/(\"<|>\")/g, '\"')
       if (!servicesJSON['hosts'][serviceJSON].hasOwnProperty('routes')) {
@@ -38,7 +37,7 @@ var saveFiles = (servicesJSON, callback) => {
     restApisConfig['hosts'][_serviceJSON] = servicesJSON['hosts'][serviceJSON]
     restApisConfig['hosts'][_serviceJSON].image = servicesJSON[
       'hosts'][serviceJSON].image.replace(/(<|>)/g, '')
-    if (index ===  Object.keys(servicesJSON['hosts']).length - 1) {
+    if (index === Object.keys(servicesJSON['hosts']).length - 1) {
       filesSync.writeServicesFiles(restApisConfig, callback)
     }
   }
@@ -50,11 +49,11 @@ module.exports = (controller) => {
   ], (bot, message) => {
     let servicesString = message.text.replace(
       'setup services', '').replace(/`/g, '').trim()
-    let servicesJSON, errorsToFix
+    let servicesJSON = {}
+    let errorsToFix = new Set()
 
     try {
       servicesJSON = JSON.parse(servicesString)
-      errorsToFix = validService(servicesJSON)
     } catch (err) {
       console.log(`${err.name} | ${err.message} | SyntaxError |${err}`)
       if (err.name === 'SyntaxError') {
@@ -66,6 +65,7 @@ module.exports = (controller) => {
         ' use http://jsonlint.com/ to check')
     }
 
+    errorsToFix = validService(servicesJSON, errorsToFix)
     if (errorsToFix.size === 0) {
       saveFiles(servicesJSON, (err) => {
         if (err) {
