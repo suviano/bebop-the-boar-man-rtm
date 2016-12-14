@@ -30,7 +30,7 @@ var validService = servicesJSON => {
 }
 
 var saveFiles = (servicesJSON, callback) => {
-  let restApisConfig = require('../servicesConf/restApiConfig.json')
+  let restApisConfig = require('../restApiConfig.json')
   let index = 0
   for (let serviceJSON in servicesJSON['hosts']) {
     index++

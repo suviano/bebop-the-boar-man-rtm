@@ -13,7 +13,7 @@ module.exports = (controller) => {
   controller.hears('service(s)? up', [
     'direct_mention', 'direct_message'
   ], (bot, message) => {
-    let restApisConfig = require('../servicesConf/restApiConfig.json')
+    let restApisConfig = require('../restApiConfig.json')
     let hosts = restApisConfig["hosts"]
 
     if (Object.keys(hosts).length) {

@@ -3,7 +3,7 @@ const fs = require('fs')
 const filesSync = require('./utils/filesSync')
 
 try {
-  let restApisConfig = require('./servicesConf/restApiConfig.json')
+  let restApisConfig = require('./restApiConfig.json')
 } catch (err) {
   filesSync.writeServicesFiles({
     'hosts': {}
