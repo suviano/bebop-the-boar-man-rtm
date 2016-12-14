@@ -1,4 +1,16 @@
-var Botkit = require('botkit')
+const Botkit = require('botkit')
+const fs = require('fs')
+const filesSync = require('./utils/filesSync')
+
+try {
+  let restApisConfig = require('./servicesConf/restApiConfig.json')
+} catch (err) {
+  filesSync.writeServicesFiles({
+    'hosts': {}
+  }, (err) => {
+    console.log('Service file can not be create')
+  })
+}
 
 var token = process.env.SLACK_TOKEN
 

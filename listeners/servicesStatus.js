@@ -10,11 +10,12 @@ var options = (host, type) => {
 }
 
 module.exports = (controller) => {
-  let restApisConfig = require('../servicesConf/restApiConfig')
   controller.hears('service(s)? up', [
     'direct_mention', 'direct_message'
   ], (bot, message) => {
+    let restApisConfig = require('../servicesConf/restApiConfig.json')
     let hosts = restApisConfig["hosts"]
+
     if (Object.keys(hosts).length) {
       for (let hostKey in hosts) {
         hosts[hostKey].routes.forEach((route) => {
